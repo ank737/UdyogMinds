@@ -1,0 +1,6 @@
+{
+  "name": "UdyogMinds",
+  "description": "AI-powered hyper-local business advisory and financial structuring platform for rural micro-entrepreneurs.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
