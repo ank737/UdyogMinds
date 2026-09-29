@@ -88,7 +88,6 @@ const BASE_TRANSLATIONS: Record<'en' | 'hi', Record<string, string>> = {
 
     // Feasibility Dashboard
     feasibilityTitle: 'Hyper-Local Feasibility Dashboard',
-    prototypeBadge: 'Prototype Analysis — Demonstration Data',
     marketReachTitle: 'Market Reach & Demographics',
     radius5km: '5 km Radius (Primary Catchment)',
     radius10km: '10 km Radius (Extended Catchment)',

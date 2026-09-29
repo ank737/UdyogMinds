@@ -28,6 +28,18 @@ export default function App() {
   // Global View & Language State
   const [currentView, setCurrentView] = useState<AppView>('landing');
 
+  // Theme state with light/dark support
+  const [theme, setTheme] = useState<'light' | 'dark'>(() => {
+    const saved = localStorage.getItem('udyogminds_theme');
+    if (saved === 'light' || saved === 'dark') return saved;
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  });
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('udyogminds_theme', theme);
+  }, [theme]);
+
   // Initialize language from localStorage or default to 'en'
   const [lang, setLang] = useState<Language>(() => {
     const saved = localStorage.getItem('udyogminds_lang');
@@ -104,7 +116,10 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50/70 text-slate-900 flex flex-col font-sans selection:bg-emerald-100 selection:text-emerald-900">
+    <div
+      data-theme={theme}
+      className="min-h-screen flex flex-col bg-[var(--app-bg)] text-[var(--text-primary)] font-sans selection:bg-[var(--accent-soft)] selection:text-[var(--text-primary)]"
+    >
       {/* Top Navbar */}
       <Navbar
         currentView={currentView}
@@ -113,8 +128,10 @@ export default function App() {
           window.scrollTo({ top: 0, behavior: 'smooth' });
         }}
         lang={lang}
+        theme={theme}
         onLanguageChange={handleSelectLanguage}
         onOpenLanguageModal={() => setIsLanguageModalOpen(true)}
+        onToggleTheme={() => setTheme((prev) => (prev === 'light' ? 'dark' : 'light'))}
       />
 
       {/* Main Content Area */}

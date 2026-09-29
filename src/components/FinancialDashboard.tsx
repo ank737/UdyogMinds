@@ -218,7 +218,7 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
             <Coins className="w-5 h-5" />
           </div>
           <div>
-            <span className="text-xs font-bold uppercase tracking-wider text-amber-700">
+            <span className="text-xs font-semibold uppercase text-amber-700">
               {t.financialTitle}
             </span>
             <h2 className="text-base sm:text-lg font-bold text-slate-900 mt-0.5">
@@ -245,13 +245,13 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
               <Calculator className="w-4 h-4 text-amber-600" />
               <span>{isHindi ? 'मार्जिन पूंजी एडजस्टर (Live Simulation)' : 'Margin Capital Adjuster (Live Simulation)'}</span>
             </h3>
-            <p className="text-xs text-slate-500 mt-0.5">
+            <p className="text-sm text-slate-600 mt-1">
               {isHindi ? 'पूंजी बदलकर देखें कि प्रोजेक्ट लागत, ऋण और ईएमआई कैसे स्वतः बदलते हैं:' : 'Adjust promoter capital to view instant recomputations across cost, debt, and repayment:'}
             </p>
           </div>
           <div className="sm:text-right">
             <span className="text-xs text-slate-500 block">{isHindi ? 'वर्तमान चुनी गई पूंजी' : 'Active Margin Capital'}</span>
-            <span className="text-xl sm:text-2xl font-bold text-slate-900 font-mono">
+            <span className="text-xl sm:text-2xl font-bold text-slate-900 tabular-nums">
               {formatINR(financial.marginCapital)}
             </span>
           </div>
@@ -268,7 +268,7 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
             onChange={(e) => onCapitalChange(parseInt(e.target.value, 10))}
             className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-emerald-700"
           />
-          <div className="flex justify-between text-[11px] text-slate-400 font-mono">
+          <div className="flex justify-between text-xs text-slate-500">
             <span>₹10,000 (Micro Tier)</span>
             <span>₹1,50,000</span>
             <span>₹5,00,000</span>
@@ -304,7 +304,7 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
           <div className="w-1.5 h-full bg-slate-300 absolute left-0 top-0" />
           <div>
             <div className="flex items-center justify-between mb-2">
-              <span className="text-xs font-mono font-bold text-slate-500 uppercase tracking-wider">
+              <span className="text-xs font-semibold text-slate-500 uppercase">
                 Step 1: Own Equity (10%)
               </span>
               <span className="w-6 h-6 rounded-full bg-slate-100 text-slate-700 text-xs font-bold flex items-center justify-center">
@@ -312,15 +312,12 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
               </span>
             </div>
             <h4 className="text-sm font-semibold text-slate-600">{t.marginCapitalCard}</h4>
-            <div className="text-2xl font-bold text-slate-900 font-mono mt-2">
+            <div className="text-2xl font-bold text-slate-900 tabular-nums mt-2">
               {formatINR(financial.marginCapital)}
             </div>
-            <p className="text-xs text-slate-500 mt-2">
-              {isHindi ? 'उद्यमी का स्वयं का अंशदान (10% मार्जिन मनी)' : 'Self-financed promoter equity contribution.'}
-            </p>
+           
           </div>
           <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
-            <span>{isHindi ? 'प्रवेश पूंजी' : 'Seed Capital'}</span>
             <span className="font-mono text-slate-700 font-medium">10% of Total Cost</span>
           </div>
         </div>
@@ -330,27 +327,26 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
           <div className="w-1.5 h-full bg-emerald-600 absolute left-0 top-0" />
           <div>
             <div className="flex items-center justify-between mb-2">
-              <span className="text-xs font-mono font-bold text-emerald-800 uppercase tracking-wider">
+              <span className="text-xs font-semibold text-emerald-800 uppercase">
                 Step 2: Rule (× 10)
               </span>
               <button
                 onClick={handleExplainProjectCost}
-                className="flex items-center gap-1 text-[11px] text-emerald-800 hover:text-emerald-900 bg-emerald-100/70 px-2 py-0.5 rounded border border-emerald-300 cursor-pointer font-medium"
+                className="flex items-center gap-1 text-xs text-emerald-800 hover:text-emerald-900 bg-emerald-100/70 px-2 py-1 rounded border border-emerald-300 cursor-pointer font-medium"
               >
                 <HelpCircle className="w-3 h-3" />
                 <span>{t.btnWhy}</span>
               </button>
             </div>
             <h4 className="text-sm font-semibold text-slate-700">{t.projectCostCard}</h4>
-            <div className="text-2xl font-bold text-emerald-700 font-mono mt-2">
+            <div className="text-2xl font-bold text-emerald-700 tabular-nums mt-2">
               {formatINR(financial.projectCost)}
             </div>
-            <div className="mt-2 p-2 rounded-lg bg-white border border-emerald-200 text-[11px] font-mono text-emerald-800 font-medium">
+            <div className="mt-2 p-2 rounded-lg bg-white border border-emerald-200 text-xs text-emerald-800 font-medium tabular-nums">
               {formatINR(financial.marginCapital)} × 10 = {formatINR(financial.projectCost)}
             </div>
           </div>
           <div className="mt-4 pt-3 border-t border-emerald-200/60 flex items-center justify-between text-xs text-slate-500">
-            <span>{isHindi ? 'कुल प्रोजेक्ट साइज' : 'Total Project Size'}</span>
             <span className="font-mono text-emerald-800 font-medium">100% Asset Outlay</span>
           </div>
         </div>
@@ -360,27 +356,26 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
           <div className="w-1.5 h-full bg-amber-600 absolute left-0 top-0" />
           <div>
             <div className="flex items-center justify-between mb-2">
-              <span className="text-xs font-mono font-bold text-amber-800 uppercase tracking-wider">
+              <span className="text-xs font-semibold text-amber-800 uppercase">
                 Step 3: Bank Debt (90%)
               </span>
               <button
                 onClick={handleExplainLoan}
-                className="flex items-center gap-1 text-[11px] text-amber-800 hover:text-amber-900 bg-amber-100/70 px-2 py-0.5 rounded border border-amber-300 cursor-pointer font-medium"
+                className="flex items-center gap-1 text-xs text-amber-800 hover:text-amber-900 bg-amber-100/70 px-2 py-1 rounded border border-amber-300 cursor-pointer font-medium"
               >
                 <HelpCircle className="w-3 h-3" />
                 <span>{t.btnWhy}</span>
               </button>
             </div>
             <h4 className="text-sm font-semibold text-slate-700">{t.loanCard}</h4>
-            <div className="text-2xl font-bold text-amber-800 font-mono mt-2">
+            <div className="text-2xl font-bold text-amber-800 tabular-nums mt-2">
               {formatINR(financial.maximumLoan)}
             </div>
-            <div className="mt-2 p-2 rounded-lg bg-white border border-amber-200 text-[11px] font-mono text-amber-800 font-medium">
+            <div className="mt-2 p-2 rounded-lg bg-white border border-amber-200 text-xs text-amber-800 font-medium tabular-nums">
               {formatINR(financial.projectCost)} × 90% = {formatINR(financial.maximumLoan)}
             </div>
           </div>
           <div className="mt-4 pt-3 border-t border-amber-200/60 flex items-center justify-between text-xs text-slate-500">
-            <span>{isHindi ? 'बैंक ऋण आवश्यकता' : 'Bank Borrowing'}</span>
             <span className="font-mono text-amber-800 font-medium">90% of Total Cost</span>
           </div>
         </div>
@@ -396,7 +391,7 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
                 {t.schemeRouterTitle}
               </h3>
             </div>
-            <p className="text-xs text-slate-500 mt-0.5">
+            <p className="text-sm text-slate-600 mt-1">
               {t.financialSub}
             </p>
           </div>
@@ -438,16 +433,16 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
             <h4 className="text-base font-bold text-slate-900 mt-1">
               {isHindi ? financial.scheme.nameHi : financial.scheme.name}
             </h4>
-            <p className="text-xs text-slate-600">
+            <p className="text-sm text-slate-700">
               {isHindi ? financial.scheme.descriptionHi : financial.scheme.descriptionEn}
             </p>
           </div>
 
           {/* Scheme Stats */}
           {!financial.exceedsLimit ? (
-            <div className="grid grid-cols-3 gap-3 bg-white p-3 rounded-xl border border-slate-200 text-center font-mono">
+            <div className="grid grid-cols-3 gap-3 bg-white p-3 rounded-xl border border-slate-200 text-center">
               <div className="px-2">
-                <span className="text-[10px] text-slate-400 uppercase block font-sans">
+                <span className="text-xs text-slate-500 uppercase block">
                   {t.interestRateLabel}
                 </span>
                 <span className="text-sm sm:text-base font-bold text-emerald-700">
@@ -455,7 +450,7 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
                 </span>
               </div>
               <div className="px-2 border-x border-slate-200">
-                <span className="text-[10px] text-slate-400 uppercase block font-sans">
+                <span className="text-xs text-slate-500 uppercase block">
                   {t.tenureLabel}
                 </span>
                 <span className="text-sm sm:text-base font-bold text-slate-900">
@@ -463,7 +458,7 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
                 </span>
               </div>
               <div className="px-2">
-                <span className="text-[10px] text-slate-400 uppercase block font-sans">
+                <span className="text-xs text-slate-500 uppercase block">
                   {t.moratoriumLabel}
                 </span>
                 <span className="text-sm sm:text-base font-bold text-amber-700">
@@ -477,7 +472,7 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
                 <AlertTriangle className="w-4 h-4 text-rose-600" />
                 <span>{isHindi ? 'प्रोटोटाइप योजना सीमा पार' : 'Scheme Ceiling Exceeded'}</span>
               </div>
-              <p className="text-[11px] text-rose-700">
+              <p className="text-xs text-rose-700">
                 {isHindi 
                   ? 'यह प्रोजेक्ट ₹50,00,000 की सीमा से अधिक है। इसके लिए स्टैंड-अप इंडिया या सिडबी विशेष क्रेडिट लाइन का परामर्श दिया जाता है।'
                   : 'Outlay exceeds configured ₹50,00,000 cap. Advised to structure via Stand-Up India or SIDBI Special Credit.'}
@@ -491,7 +486,7 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
           <span className="text-xs font-bold uppercase tracking-wider text-slate-500 block mb-3">
             {isHindi ? 'कॉन्फ़िगर किए गए योजना नियम:' : 'Configured Routing Rules:'}
           </span>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-sm">
             <div
               className={`p-3 rounded-xl border ${
                 financial.projectCost <= 140000
@@ -501,7 +496,7 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
             >
               <div className="font-bold mb-0.5">Rule 1: Micro Finance</div>
               <div>IF Project Cost ≤ ₹1.40 Lakh</div>
-              <div className="text-[11px] mt-1 font-mono text-slate-600">6.5% p.a. • 3 Yrs • 3 Mos Grace</div>
+              <div className="text-xs mt-1 text-slate-600 tabular-nums">6.5% p.a. • 3 Yrs • 3 Mos Grace</div>
             </div>
 
             <div
@@ -513,7 +508,7 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
             >
               <div className="font-bold mb-0.5">Rule 2: Term Loan</div>
               <div>IF Project Cost &gt; ₹1.40L & ≤ ₹50.00L</div>
-              <div className="text-[11px] mt-1 font-mono text-slate-600">8.0% p.a. • 7 Yrs • 6 Mos Grace</div>
+              <div className="text-xs mt-1 text-slate-600 tabular-nums">8.0% p.a. • 7 Yrs • 6 Mos Grace</div>
             </div>
 
             <div
@@ -525,7 +520,7 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
             >
               <div className="font-bold mb-0.5">Rule 3: Limit Ceiling</div>
               <div>IF Project Cost &gt; ₹50.00 Lakh</div>
-              <div className="text-[11px] mt-1 font-mono text-slate-600">Outside configured scheme limit</div>
+              <div className="text-xs mt-1 text-slate-600">Outside configured scheme limit</div>
             </div>
           </div>
         </div>
@@ -543,31 +538,31 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
               </h3>
               <button
                 onClick={handleExplainEMI}
-                className="flex items-center gap-1 text-[11px] text-emerald-800 hover:text-emerald-900 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200 cursor-pointer font-medium"
+                className="flex items-center gap-1 text-xs text-emerald-800 hover:text-emerald-900 bg-emerald-50 px-2 py-1 rounded border border-emerald-200 cursor-pointer font-medium"
               >
                 <HelpCircle className="w-3 h-3" />
                 <span>{t.btnWhy}</span>
               </button>
             </div>
-            <p className="text-xs text-slate-500">
+            <p className="text-sm text-slate-600">
               {isHindi ? 'मासिक घटते शेष पर चक्रवृद्धि ब्याज' : 'Standard monthly reducing balance amortization.'}
             </p>
 
             <div className="my-6 p-4 rounded-xl bg-slate-50 border border-slate-200 text-center">
-              <span className="text-xs text-slate-500 block uppercase tracking-wider font-semibold">
+              <span className="text-xs text-slate-600 block uppercase font-semibold">
                 {t.monthlyEmiLabel}
               </span>
-              <div className="text-3xl font-bold text-emerald-700 font-mono mt-1">
+              <div className="text-3xl font-bold text-emerald-700 tabular-nums mt-1">
                 {formatINR(financial.monthlyEmi)}
                 <span className="text-xs text-slate-500 font-normal"> / mo</span>
               </div>
-              <div className="text-[11px] text-slate-400 font-mono mt-1">
+              <div className="text-xs text-slate-500 mt-1">
                 {financial.scheme.tenureYears * 12} Monthly installments
               </div>
             </div>
           </div>
 
-          <div className="space-y-2 text-xs border-t border-slate-100 pt-4 font-mono">
+          <div className="space-y-2 text-sm border-t border-slate-100 pt-4">
             <div className="flex justify-between text-slate-600">
               <span className="text-slate-500 font-sans">{t.loanCard}:</span>
               <span>{formatINR(financial.maximumLoan)}</span>
@@ -596,7 +591,7 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
                   <Calendar className="w-4 h-4 text-emerald-700" />
                   <span>{t.repaymentTableTitle}</span>
                 </h4>
-                <p className="text-[11px] text-slate-500 mt-0.5">
+                <p className="text-xs text-slate-600 mt-1">
                   {t.moratoriumNotice}
                 </p>
               </div>
@@ -604,7 +599,7 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
               {/* Pagination Controls */}
               {totalQuarterPages > 1 && (
                 <div className="flex items-center gap-1.5 self-start sm:self-auto text-xs">
-                  <span className="text-slate-500 font-mono mr-1">
+                  <span className="text-slate-600 mr-1">
                     Page {activeQuarterPage} of {totalQuarterPages}
                   </span>
                   <button
@@ -627,7 +622,7 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
 
             {/* Table */}
             <div className="overflow-x-auto">
-              <table className="w-full text-left text-xs font-mono border-collapse">
+              <table className="w-full text-left text-xs border-collapse tabular-nums">
                 <thead>
                   <tr className="border-b border-slate-200 text-slate-500 font-sans font-semibold bg-slate-50">
                     <th className="py-2 px-3 rounded-l-md">Quarter</th>
@@ -658,10 +653,10 @@ export const FinancialDashboard: React.FC<FinancialDashboardProps> = ({
             </div>
           </div>
 
-          <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500">
+          <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-600">
             <span>
               {isHindi ? 'कुल क्वार्टर: ' : 'Total Quarters: '}
-              <strong className="text-slate-800 font-mono">{financial.quarterlySchedule.length}</strong>
+              <strong className="text-slate-800 tabular-nums">{financial.quarterlySchedule.length}</strong>
             </span>
             <span className="text-emerald-700 font-medium">
               Amortization Engine Verified

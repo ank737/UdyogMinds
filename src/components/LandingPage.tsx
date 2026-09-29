@@ -49,18 +49,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({
       {/* Hero Section */}
       <section className="relative w-full pt-8 sm:pt-16 px-4 sm:px-6 lg:px-8 text-center">
         {/* Institutional Pill */}
-        <motion.div
-          initial={{ opacity: 0, y: -6 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-50 border border-emerald-200/80 text-emerald-800 text-xs font-semibold mb-6 shadow-2xs"
-        >
-          <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse" />
-          <span>UdyogMinds Platform</span>
-          <span className="text-emerald-300">•</span>
-          <span className="text-emerald-700 font-medium">
-            {isHindi ? 'ग्रामीण सूक्ष्म-उद्यम विकास व वित्तीय समावेशन' : 'Rural Enterprise Viability & Credit Structuring'}
-          </span>
-        </motion.div>
+       
 
         {/* Hero Title */}
         <motion.h1
@@ -145,60 +134,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({
         </motion.div>
       </section>
 
-      {/* Live Interactive Snapshot Card (Demonstration of Clean Output) */}
-      <section className="w-full px-4 sm:px-6 lg:px-8">
-        <div className="surface-card rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm relative overflow-hidden">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-5 border-b border-slate-100">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center font-bold">
-                <TrendingUp className="w-5 h-5" />
-              </div>
-              <div>
-                <span className="text-xs font-bold uppercase tracking-wider text-emerald-700 block">
-                  Interactive Platform Snapshot
-                </span>
-                <h3 className="text-base font-bold text-slate-900 mt-0.5">
-                  Sample Case: Village Grocery Unit in Kachhwa, Mirzapur
-                </h3>
-              </div>
-            </div>
-            <button
-              onClick={onStartAssessment}
-              className="flex items-center gap-1 text-xs font-semibold text-emerald-700 hover:text-emerald-800 bg-emerald-50 hover:bg-emerald-100 px-3 py-1.5 rounded-lg border border-emerald-200 transition-colors self-start sm:self-auto cursor-pointer"
-            >
-              <span>{t.primaryCta}</span>
-              <ArrowUpRight className="w-3.5 h-3.5" />
-            </button>
-          </div>
-
-          {/* 4 Metric Columns */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-5">
-            <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200/70">
-              <span className="text-xs text-slate-500 font-medium block">Promoter Margin</span>
-              <span className="text-xl font-bold font-mono text-slate-900 mt-1 block">₹1,00,000</span>
-              <span className="text-[11px] text-slate-500">10% Own contribution</span>
-            </div>
-
-            <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200/70">
-              <span className="text-xs text-slate-500 font-medium block">Total Project Cost</span>
-              <span className="text-xl font-bold font-mono text-emerald-700 mt-1 block">₹10,00,000</span>
-              <span className="text-[11px] text-emerald-600 font-medium">10x Outlay Rule</span>
-            </div>
-
-            <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200/70">
-              <span className="text-xs text-slate-500 font-medium block">Permissible Bank Debt</span>
-              <span className="text-xl font-bold font-mono text-slate-900 mt-1 block">₹9,00,000</span>
-              <span className="text-[11px] text-slate-500">90% Bank Debt</span>
-            </div>
-
-            <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200/70">
-              <span className="text-xs text-slate-500 font-medium block">Assigned Scheme</span>
-              <span className="text-sm font-bold text-slate-900 mt-1 block">Term Loan Scheme</span>
-              <span className="text-[11px] text-slate-500">8.0% p.a. • 7 Years Tenure</span>
-            </div>
-          </div>
-        </div>
-      </section>
+      
 
       {/* 3 Value Pillars */}
       <section className="w-full px-4 sm:px-6 lg:px-8">

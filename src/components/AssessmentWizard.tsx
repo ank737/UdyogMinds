@@ -1299,11 +1299,7 @@ export const AssessmentWizard: React.FC<
             <div className="border-b border-slate-200/80 pb-6 mb-8">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div>
-                  <span className="text-xs font-bold uppercase tracking-wider text-emerald-700">
-                    {isHindi
-                      ? 'चरणबद्ध मूल्यांकन'
-                      : 'Interactive Assessment Form'}
-                  </span>
+                 
 
                   <h2 className="text-xl sm:text-2xl font-bold text-slate-900 mt-0.5">
                     {t.assessmentTitle}

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { 
-  Sparkles, 
   Globe, 
   ChevronDown, 
   FileText, 
@@ -10,7 +9,9 @@ import {
   Home, 
   Menu, 
   X,
-  Landmark
+  Landmark,
+  Sun,
+  Moon
 } from 'lucide-react';
 import { Language } from '../types';
 import { TRANSLATIONS } from '../data/translations';
@@ -20,16 +21,20 @@ interface NavbarProps {
   currentView: string;
   onNavigate: (view: string) => void;
   lang: Language;
+  theme: 'light' | 'dark';
   onLanguageChange: (lang: Language) => void;
   onOpenLanguageModal: () => void;
+  onToggleTheme: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
   currentView,
   onNavigate,
   lang,
+  theme,
   onLanguageChange,
   onOpenLanguageModal,
+  onToggleTheme,
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const t = TRANSLATIONS[lang] || TRANSLATIONS.en;
@@ -46,30 +51,20 @@ export const Navbar: React.FC<NavbarProps> = ({
   ];
 
   return (
-    <header className="sticky top-0 z-40 w-full bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-xs">
+    <header className="sticky top-0 z-40 w-full border-b border-[var(--border)] bg-[var(--header-bg)]/95 backdrop-blur-md shadow-[var(--shadow-soft)]">
       {/* Main Bar */}
       <div className="w-full px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 gap-4">
-          {/* Logo & Brand */}
+          {/* Brand */}
           <div 
             onClick={() => { onNavigate('landing'); setMobileMenuOpen(false); }}
             className="flex items-center gap-3 cursor-pointer group select-none"
           >
-            <div className="w-9 h-9 rounded-xl bg-emerald-700 flex items-center justify-center text-white shadow-xs group-hover:bg-emerald-800 transition-colors">
-              <Sparkles className="w-4 h-4 text-emerald-100" />
-            </div>
             <div>
-              <div className="flex items-center gap-2">
-                <span className="font-bold text-lg text-slate-900 tracking-tight">
-                  UdyogMinds
-                </span>
-                <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200">
-                  AI Advisory
-                </span>
-              </div>
-              <p className="text-[11px] text-slate-500 font-medium hidden sm:block">
-                {lang === 'hi' ? 'ग्रामीण सूक्ष्म-उद्यम मंच' : 'Hyper-Local Enterprise Platform'}
-              </p>
+              <span className="font-bold text-lg tracking-tight text-[var(--text-primary)]">
+                UdyogMinds
+              </span>
+              
             </div>
           </div>
 
@@ -84,11 +79,11 @@ export const Navbar: React.FC<NavbarProps> = ({
                   onClick={() => onNavigate(link.id)}
                   className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors cursor-pointer ${
                     isActive
-                      ? 'bg-emerald-50 text-emerald-800 border border-emerald-200/80 shadow-2xs'
-                      : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100/80'
+                      ? 'bg-[var(--accent-soft)] text-[var(--accent-strong)] border border-[var(--accent)]/20 shadow-[var(--shadow-card)]'
+                      : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--surface-strong)]'
                   }`}
                 >
-                  <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-emerald-700' : 'text-slate-400'}`} />
+                  <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-[var(--accent)]' : 'text-[var(--text-muted)]'}`} />
                   <span>{link.label}</span>
                 </button>
               );
@@ -97,25 +92,35 @@ export const Navbar: React.FC<NavbarProps> = ({
 
           {/* Actions & Utilities */}
           <div className="flex items-center gap-2.5">
+            <button
+              type="button"
+              onClick={onToggleTheme}
+              aria-label="Toggle light and dark mode"
+              className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-[var(--border)] bg-[var(--surface)] text-[var(--text-primary)] shadow-[var(--shadow-soft)] transition-all hover:border-[var(--accent)] hover:text-[var(--accent)]"
+              title="Toggle light / dark mode"
+            >
+              {theme === 'dark' ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+            </button>
+
             {/* Language Selector Button with Globe */}
             <button
               id="open-language-modal-btn"
               onClick={onOpenLanguageModal}
-              className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white hover:bg-emerald-50/70 text-slate-800 hover:text-emerald-900 border border-slate-300 hover:border-emerald-300 text-xs font-semibold shadow-2xs transition-all cursor-pointer group"
+              className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-[var(--surface)] hover:bg-[var(--surface-strong)] text-[var(--text-primary)] hover:text-[var(--text-primary)] border border-[var(--border)] hover:border-[var(--accent)] text-xs font-semibold shadow-[var(--shadow-soft)] transition-all cursor-pointer group"
               title="Change Language / भाषा बदलें"
             >
-              <div className="w-5 h-5 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-700 group-hover:bg-emerald-200 transition-colors">
+              <div className="w-5 h-5 rounded-full bg-[var(--accent-soft)] flex items-center justify-center text-[var(--accent)] group-hover:bg-[var(--accent)]/10 transition-colors">
                 <Globe className="w-3.5 h-3.5" />
               </div>
               <div className="flex items-baseline gap-1.5">
-                <span className="font-bold text-slate-900 group-hover:text-emerald-900">
+                <span className="font-bold text-[var(--text-primary)] group-hover:text-[var(--accent)]">
                   {currentLangObj.nativeName}
                 </span>
-                <span className="text-[11px] text-slate-500 hidden sm:inline">
+                <span className="text-[11px] text-[var(--text-muted)] hidden sm:inline">
                   ({currentLangObj.code.toUpperCase()})
                 </span>
               </div>
-              <ChevronDown className="w-3.5 h-3.5 text-slate-400 group-hover:text-emerald-700 transition-colors" />
+              <ChevronDown className="w-3.5 h-3.5 text-[var(--text-muted)] group-hover:text-[var(--accent)] transition-colors" />
             </button>
 
             {/* Mobile Menu Toggle */}
@@ -145,11 +150,11 @@ export const Navbar: React.FC<NavbarProps> = ({
                 }}
                 className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-semibold transition-colors ${
                   isActive
-                    ? 'bg-emerald-50 text-emerald-800 font-bold'
-                    : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
+                    ? 'bg-[var(--accent-soft)] text-[var(--accent-strong)] font-bold'
+                    : 'text-[var(--text-secondary)] hover:bg-[var(--surface-strong)] hover:text-[var(--text-primary)]'
                 }`}
               >
-                <Icon className={`w-4 h-4 ${isActive ? 'text-emerald-700' : 'text-slate-400'}`} />
+                <Icon className={`w-4 h-4 ${isActive ? 'text-[var(--accent)]' : 'text-[var(--text-muted)]'}`} />
                 <span>{link.label}</span>
               </button>
             );
@@ -161,13 +166,13 @@ export const Navbar: React.FC<NavbarProps> = ({
                 setMobileMenuOpen(false);
                 onOpenLanguageModal();
               }}
-              className="w-full flex items-center justify-between px-3 py-2.5 rounded-lg bg-emerald-50 text-emerald-900 text-sm font-semibold cursor-pointer"
+              className="w-full flex items-center justify-between px-3 py-2.5 rounded-lg bg-[var(--accent-soft)] text-[var(--accent-strong)] text-sm font-semibold cursor-pointer"
             >
               <div className="flex items-center gap-2.5">
-                <Globe className="w-4 h-4 text-emerald-700" />
+                <Globe className="w-4 h-4 text-[var(--accent)]" />
                 <span>Language: {currentLangObj.nativeName} ({currentLangObj.name})</span>
               </div>
-              <span className="text-xs text-emerald-700 font-bold">Change</span>
+              <span className="text-xs text-[var(--accent)] font-bold">Change</span>
             </button>
           </div>
         </div>

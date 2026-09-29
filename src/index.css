@@ -1,59 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
+
+:root {
+  --app-bg: #f5f7f0;
+  --header-bg: rgba(255, 255, 255, 0.9);
+  --surface: #ffffff;
+  --surface-strong: #f3f7f1;
+  --card: #ffffff;
+  --muted: #eef3eb;
+  --border: rgba(121, 139, 118, 0.18);
+  --text-primary: #1f2a1f;
+  --text-secondary: #4d5f4d;
+  --text-muted: #6b756b;
+  --accent: #1f8a5f;
+  --accent-strong: #176d4b;
+  --accent-soft: rgba(31, 138, 95, 0.12);
+  --shadow-soft: 0 10px 28px rgba(19, 39, 28, 0.06);
+  --shadow-card: 0 8px 18px rgba(19, 39, 28, 0.04);
+}
+
+html[data-theme='dark'] {
+  --app-bg: #0f1720;
+  --header-bg: rgba(15, 23, 32, 0.82);
+  --surface: #122028;
+  --surface-strong: #172b33;
+  --card: #14252d;
+  --muted: #1a313b;
+  --border: rgba(152, 175, 167, 0.18);
+  --text-primary: #edf6ef;
+  --text-secondary: #cfe0d5;
+  --text-muted: #9eb3a5;
+  --accent: #5ad3a0;
+  --accent-strong: #8be6b7;
+  --accent-soft: rgba(90, 211, 160, 0.14);
+  --shadow-soft: 0 12px 30px rgba(2, 8, 10, 0.35);
+  --shadow-card: 0 8px 20px rgba(2, 8, 10, 0.22);
+}
+
+@theme {
+  --font-sans: "Inter", "Plus Jakarta Sans", "Noto Sans Devanagari", ui-sans-serif, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--app-bg);
+  color: var(--text-primary);
+  font-family: "Inter", "Plus Jakarta Sans", "Noto Sans Devanagari", ui-sans-serif, sans-serif;
+  font-variant-numeric: tabular-nums;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  letter-spacing: -0.02em;
+}
+
+p,
+span,
+label,
+li,
+button,
+input,
+select,
+textarea {
+  font-feature-settings: "tnum" 1;
+}
 
 @layer utilities {
   .surface-card {
-    background-color: #ffffff;
-    border: 1px solid rgba(226, 232, 240, 0.85);
-    box-shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.04), 0 1px 2px -1px rgba(15, 23, 42, 0.04);
+    background-color: var(--card);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-card);
   }
 
   .surface-card-interactive {
-    background-color: #ffffff;
-    border: 1px solid rgba(226, 232, 240, 0.85);
-    box-shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.04);
+    background-color: var(--card);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-card);
     transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .surface-card-interactive:hover {
-    border-color: rgba(16, 185, 129, 0.4);
+    border-color: rgba(31, 138, 95, 0.42);
     transform: translateY(-1.5px);
-    box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.07), 0 8px 10px -6px rgba(15, 23, 42, 0.03);
+    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
   }
 
   .surface-muted {
-    background-color: #f8fafc;
-    border: 1px solid rgba(226, 232, 240, 0.7);
+    background-color: var(--muted);
+    border: 1px solid var(--border);
   }
 
   .form-input-clean {
-    background-color: #ffffff;
-    border: 1px solid #cbd5e1;
-    color: #0f172a;
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text-primary);
     transition: border-color 0.15s ease, box-shadow 0.15s ease;
   }
 
   .form-input-clean:focus {
-    border-color: #059669;
+    border-color: var(--accent);
     outline: none;
-    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15);
+    box-shadow: 0 0 0 3px var(--accent-soft);
   }
 
-  /* Legacy utility alias backward compatibility */
   .glass-card {
-    background-color: #ffffff;
-    border: 1px solid rgba(226, 232, 240, 0.9);
-    box-shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.04), 0 1px 2px -1px rgba(15, 23, 42, 0.04);
+    background-color: var(--card);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-card);
   }
 
   .glass-input {
-    background-color: #ffffff;
-    border: 1px solid #cbd5e1;
-    color: #0f172a;
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text-primary);
   }
+
   .glass-input:focus {
-    border-color: #059669;
+    border-color: var(--accent);
     outline: none;
-    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15);
+    box-shadow: 0 0 0 3px var(--accent-soft);
   }
 }
 
