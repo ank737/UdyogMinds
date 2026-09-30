@@ -527,31 +527,31 @@ Instead of receiving isolated calculations, the user gets a connected view of th
 
 ## 🏠 Home Page
 
-![UdyogMinds Home Page](screenshots/Homepage.jpg)
+![UdyogMinds Home Page](Screenshots/Homepage.jpg)
 
 ## 📋 Business Input
 
-![Business Input](screenshots/Bussiness_input1.jpg)
-![Business Input](screenshots/Bussiness_input2.jpg)
-![Business Input](screenshots/Bussiness_input3.jpg)
-![Business Input](screenshots/Bussiness_input4.jpg)
+![Business Input](Screenshots/Bussiness_input1.jpg)
+![Business Input](Screenshots/Bussiness_input2.jpg)
+![Business Input](Screenshots/Bussiness_input3.jpg)
+![Business Input](Screenshots/Bussiness_input4.jpg)
 
 
 ## 📊 Business Analysis Dashboard
 
-![Business Analysis Dashboard](screenshots/Bussiness_analysis.jpg)
+![Business Analysis Dashboard](Screenshots/Bussiness_analysis.jpg)
 
 ## 💰 Financial Analysis
 
-![Financial Analysis](screenshots/Financial_analysis.jpg)
+![Financial Analysis](Screenshots/Financial_analysis.jpg)
 
 ## 🏦 Financing & Loan Analysis
 
-![Loan Analysis](screenshots/Financing_and_loan_analysis.jpg)
+![Loan Analysis](Screenshots/Financing_and_loan_analysis.jpg)
 
 ## 🏛️ Government Scheme Recommendations
 
-![Government Scheme Recommendations](screenshots/Government_scheme.jpg)
+![Government Scheme Recommendations](Screenshots/Government_scheme.jpg)
 
 ---
 
