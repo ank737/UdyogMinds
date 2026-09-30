@@ -7,7 +7,13 @@ The platform combines hyper-local market intelligence, business cost and profita
 Instead of requiring a first-time entrepreneur to independently research markets, estimate costs, calculate profitability, explore financing options, and search through government schemes, UdyogMinds brings these decision-making steps together in one platform.
 
 ---
+## 🔗 Project Links
 
+- 🌐 **[Live](https://ank737.github.io/UdyogMinds/)**
+- 🎥 **[Demo Video](https://youtu.be/G9wISXG-J2o?si=o7O3ihBXW13wpYM9)**
+- 📊 **[Project Presentation (PPT)](https://docs.google.com/presentation/d/1JeM_UrCzmDbY8lY8BH_UbWOScpRsk82p/edit?usp=drivesdk&ouid=105198536818168275671&rtpof=true&sd=true)**
+
+---
 ## 🚀 Problem Statement
 
 Rural micro-entrepreneurs often have the motivation to start or expand a business but face several challenges before making an investment decision.
